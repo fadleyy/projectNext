@@ -22,11 +22,23 @@ const Links = () => {
       path: "/blog",
     },
   ];
+
+  // Temporary
+  const session = true;
+  const isAdmin = true;
   return (
     <div className={style.links}>
       {links.map((link) => (
         <Navlink item={link} key={link.title} />
       ))}
+      {session ? (
+        <>
+          {isAdmin && <Navlink item={{ title: "Admin", path: "/admin" }} />}
+          <button>Logout</button>
+        </>
+      ) : (
+        <Navlink item={{ title: "Login", path: "/login" }} />
+      )}
     </div>
   );
 };
