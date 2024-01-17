@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.imgContainer {
+  flex: 1;
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.inputContainer {
+  flex: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form input,
+.form textarea {
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--bgSoft);
+  color: var(--textSoft);
+}
+
+.form button {
+  padding: 8px 0;
+  background-color: var(--btn);
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+}
