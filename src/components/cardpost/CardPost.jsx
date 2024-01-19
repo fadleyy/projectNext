@@ -25,7 +25,7 @@ const cardPost = ({ data }) => {
           <span className={styles.dateMobile}>1.1.2024</span>
         </div>
         <p>{data.body}</p>
-        <Link href={"/blog/post"}>Read More</Link>
+        <Link href={`/blog/${data.id}`}>Read More</Link>
       </div>
     </div>
   );

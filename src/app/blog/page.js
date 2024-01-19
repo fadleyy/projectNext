@@ -5,10 +5,12 @@ import Link from "next/link";
 import CardPost from "@/components/cardpost/CardPost";
 
 const getData = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    next: { revalidate: 3600 },
+  });
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data", { cache: "force-cache" });
+    throw new Error("Failed to fetch data");
   }
   return res.json();
 };
@@ -18,7 +20,7 @@ const BlogPage = async () => {
   return (
     <div className={styles.containerBlog}>
       {data.map((post) => (
-        <div className={styles.post} key={post}>
+        <div className={styles.post} key={post.id}>
           <CardPost data={post} />
         </div>
       ))}

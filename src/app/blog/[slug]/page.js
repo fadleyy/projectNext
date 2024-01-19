@@ -1,10 +1,26 @@
-import React from "react";
+import React, { Suspense } from "react";
 import styles from "./post.module.css";
 import Image from "next/image";
 import Gap from "@/components/gap/Gap";
 import Link from "next/link";
+import PostUser from "@/components/postUser/PostUser";
 
-const SingelBlogpage = () => {
+const GetData = async (slug) => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${slug}`,
+    { cache: "no-store" }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+};
+
+const SingelBlogpage = async ({ params }) => {
+  const { slug } = params;
+  const data = await GetData(slug);
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -18,7 +34,7 @@ const SingelBlogpage = () => {
         />
       </div>
       <div className={styles.right}>
-        <h1 className={styles.title}>title</h1>
+        <h1 className={styles.title}>{data.title}</h1>
         <div className={styles.detail}>
           <Image
             src={"/noavatar.png"}
@@ -27,23 +43,15 @@ const SingelBlogpage = () => {
             alt="avatar"
             className={styles.avatar}
           />
-          <div className={styles.detailtext}>
-            <span className={styles.textDetail}>Author</span>
-            <span className={styles.detailValue}>Muhamad Fadli</span>
-          </div>
-
+          <Suspense fallback={<div>Loading...</div>}>
+            <PostUser userId={data.userId} />
+          </Suspense>
           <div className={styles.detailtext}>
             <span className={styles.textDetail}>Published</span>
             <span className={styles.detailValue}>1-1-202</span>
           </div>
         </div>
-        <div className={styles.content}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
-          placeat doloremque? Harum consequuntur ea repellat. Odit sapiente
-          dolores tempore quos, quaerat doloremque consequuntur. Eius vitae
-          magnam amet commodi odio dicta, unde hic, necessitatibus harum maxime,
-          iste doloremque tenetur non velit.
-        </div>
+        <div className={styles.content}>{data.body}</div>
         <Link href={"/blog"} className={styles.link}>
           Back
         </Link>
