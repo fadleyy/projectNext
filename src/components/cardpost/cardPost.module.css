@@ -1,0 +1,160 @@
+.container {
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.containerImg {
+  width: 80%;
+  height: 400px;
+  position: relative;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.date {
+  width: max-content;
+  height: max-content;
+  transform: rotate(270deg);
+  font-style: italic;
+}
+
+.buttom {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttom h1 {
+  margin-bottom: 15px;
+}
+
+.buttom p {
+  color: gray;
+  font-size: 12px;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.buttom a {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    display: flex;
+    width: calc(100vw - 20vw);
+    gap: 10px;
+    margin-bottom: 10px;
+    overflow-x: hidden;
+  }
+  .date {
+    display: none;
+  }
+
+  .dateMobile {
+    display: block;
+  }
+
+  .containerImg {
+    width: 100%;
+    height: 350px;
+  }
+
+  .title span {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  .buttom a {
+    align-items: center;
+    padding: 8px 0;
+  }
+
+  .buttom p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(100vw - 20vw);
+    margin-bottom: 10px;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+  }
+
+  .containerImg {
+    width: 90%;
+    height: 350px;
+    position: relative;
+  }
+
+  .img {
+    object-fit: cover;
+  }
+
+  .date {
+    display: none;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+  }
+
+  .dateMobile {
+    display: block;
+    font-size: 12px;
+  }
+
+  .buttom {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttom h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .buttom p {
+    font-size: 12px;
+  }
+
+  .buttom a {
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dateMobile {
+    display: none;
+  }
+
+  .containerImg {
+    width: 90%;
+    height: 300px;
+    position: relative;
+  }
+}

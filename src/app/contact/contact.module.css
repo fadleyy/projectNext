@@ -42,3 +42,9 @@
   border: none;
   border-radius: 5px;
 }
+
+@media (max-width: 768px) {
+  .imgContainer {
+    display: none;
+  }
+}

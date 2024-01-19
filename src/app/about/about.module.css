@@ -42,7 +42,53 @@
 
 .box h1 {
   color: var(--btn);
+  font-weight: bold;
 }
+
+.imgMobile {
+  display: none;
+}
+
 .box p {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: auto;
+  }
+  .title {
+    font-size: 20px;
+  }
+
+  .desc {
+    font-size: 14px;
+  }
+
+  .imgMobile {
+    display: block;
+  }
+
+  .imgContainer {
+    display: none;
+  }
+
+  .boxes {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+
+  .box h1 {
+    font-size: 3rem;
+  }
 }

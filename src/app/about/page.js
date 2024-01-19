@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./about.module.css";
+import Gap from "@/components/gap/Gap";
 
 const AboutPage = () => {
   return (
@@ -18,6 +19,13 @@ const AboutPage = () => {
         <h1 className={styles.title}>
           We create digital ideas that are bigger, bolder, braver and better
         </h1>
+        <Image
+          src={"/about.png"}
+          alt={"about-banner"}
+          className={styles.imgMobile}
+          width={300}
+          height={300}
+        />
         <p className={styles.desc}>
           We create digital ideas that are bigger, bolder, braver and better. We
           believe in good ideas flexibility and precission We’re world’s Our
@@ -38,6 +46,7 @@ const AboutPage = () => {
             <p>Year of experience</p>
           </div>
         </div>
+        <Gap h="8" />
       </div>
     </div>
   );

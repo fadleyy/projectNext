@@ -14,6 +14,10 @@
   font-size: 70px;
 }
 
+.heroImgMobile {
+  display: none;
+}
+
 .textContainer p {
   font-size: 20px;
 }
@@ -48,4 +52,36 @@
 .imgContainer {
   flex: 1;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 50px;
+    width: 85vw;
+  }
+
+  .textContainer h1 {
+    font-size: 32px;
+    width: 90%;
+  }
+
+  .imgContainer {
+    display: none;
+  }
+
+  .heroImgMobile {
+    display: block;
+  }
+
+  .textContainer p {
+    font-size: 14px;
+    width: 90%;
+  }
+
+  .brands {
+    position: relative;
+    width: 300px;
+    display: block;
+  }
 }
