@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import styles from "./cardPost.module.css";
 
-const cardPost = () => {
+const cardPost = ({ data }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -17,19 +17,14 @@ const cardPost = () => {
             className={styles.img}
           />
         </div>
-        <span className={styles.date}>1.1.2024</span>
+        <span className={styles.date}>{data.id}</span>
       </div>
       <div className={styles.buttom}>
         <div className={styles.title}>
-          <h1>Title</h1>
+          <h1>{data.title}</h1>
           <span className={styles.dateMobile}>1.1.2024</span>
         </div>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error
-          mollitia harum sit illum accusamus nemo. Pariatur aliquam, nisi iure
-          temporibus necessitatibus, quasi, quas quae libero dicta nemo eaque
-          laborum? Totam?
-        </p>
+        <p>{data.body}</p>
         <Link href={"/blog/post"}>Read More</Link>
       </div>
     </div>
