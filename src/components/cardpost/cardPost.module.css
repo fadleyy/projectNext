@@ -27,6 +27,7 @@
   height: max-content;
   transform: rotate(270deg);
   font-style: italic;
+  margin: 8px;
 }
 
 .buttom {

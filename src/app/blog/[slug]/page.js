@@ -5,22 +5,23 @@ import Gap from "@/components/gap/Gap";
 import Link from "next/link";
 import PostUser from "@/components/postUser/PostUser";
 
-const GetData = async (slug) => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${slug}`,
-    { cache: "no-store" }
-  );
+// FETCH WITH AN API
+// const GetData = async (slug) => {
+//   const res = await fetch(
+//     `https://jsonplaceholder.typicode.com/posts/${slug}`,
+//     { cache: "no-store" }
+//   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch data");
+//   }
 
-  return res.json();
-};
+//   return res.json();
+// };
 
 const SingelBlogpage = async ({ params }) => {
   const { slug } = params;
-  const data = await GetData(slug);
+  // const data = await GetData(slug);
   return (
     <div className={styles.container}>
       <div className={styles.left}>

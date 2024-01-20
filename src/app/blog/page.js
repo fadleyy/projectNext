@@ -4,16 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import CardPost from "@/components/cardpost/CardPost";
 
-const getData = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    next: { revalidate: 3600 },
-  });
+// FETCH WITH AN API
+// const getData = async () => {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+//     next: { revalidate: 3600 },
+//   });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-};
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch data");
+//   }
+//   return res.json();
+// };
 
 const BlogPage = async () => {
   const data = await getData();
