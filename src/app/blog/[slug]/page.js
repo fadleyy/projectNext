@@ -20,6 +20,14 @@ import { getPost } from "@/lib/data";
 //   return res.json();
 // };
 
+export const generateMetadata = async ({ params }) => {
+  const { slug } = params;
+  const data = await getPost(slug);
+  return {
+    title: data.title,
+    description: data.desc,
+  };
+};
 const SingelBlogpage = async ({ params }) => {
   const { slug } = params;
   // FETCH WITH AN AP
