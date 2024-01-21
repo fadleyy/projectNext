@@ -1,7 +1,11 @@
-"use client";
 import React from "react";
 import styles from "./contact.module.css";
 import Image from "next/image";
+
+export const metadata = {
+  title: "contact page",
+  description: "contact description",
+};
 
 const ContactPage = () => {
   return (

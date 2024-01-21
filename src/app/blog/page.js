@@ -3,6 +3,7 @@ import styles from "./blog.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import CardPost from "@/components/cardpost/CardPost";
+import { getPosts } from "@/lib/data";
 
 // FETCH WITH AN API
 // const getData = async () => {
@@ -17,12 +18,17 @@ import CardPost from "@/components/cardpost/CardPost";
 // };
 
 const BlogPage = async () => {
-  const data = await getData();
+  // FETCH WITH AN API
+  // const data = await getData();
+
+  // FETCH WITHOUT AN API
+  const posts = await getPosts();
+
   return (
     <div className={styles.containerBlog}>
-      {data.map((post) => (
+      {posts.map((post) => (
         <div className={styles.post} key={post.id}>
-          <CardPost data={post} />
+          <CardPost post={post} />
         </div>
       ))}
     </div>

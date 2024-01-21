@@ -1,7 +1,18 @@
-.Container {
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.texts {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .title {

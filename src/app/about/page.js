@@ -3,6 +3,11 @@ import React from "react";
 import styles from "./about.module.css";
 import Gap from "@/components/gap/Gap";
 
+export const metadata = {
+  title: "about page",
+  description: "about description",
+};
+
 const AboutPage = () => {
   return (
     <div className={styles.container}>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Gap from "@/components/gap/Gap";
 import Link from "next/link";
 import PostUser from "@/components/postUser/PostUser";
+import { getPost } from "@/lib/data";
 
 // FETCH WITH AN API
 // const GetData = async (slug) => {
@@ -21,38 +22,34 @@ import PostUser from "@/components/postUser/PostUser";
 
 const SingelBlogpage = async ({ params }) => {
   const { slug } = params;
+  // FETCH WITH AN AP
   // const data = await GetData(slug);
+
+  // FETCH WITHOUT AN API
+  const data = await getPost(slug);
   return (
     <div className={styles.container}>
-      <div className={styles.left}>
-        <Image
-          src={
-            "https://images.pexels.com/photos/18028809/pexels-photo-18028809/free-photo-of-typical-london.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          }
-          fill
-          alt="blog banner"
-          className={styles.img}
-        />
-      </div>
+      {data.img && (
+        <div className={styles.left}>
+          <Image src={data.img} fill alt="blog banner" className={styles.img} />
+        </div>
+      )}
       <div className={styles.right}>
         <h1 className={styles.title}>{data.title}</h1>
         <div className={styles.detail}>
-          <Image
-            src={"/noavatar.png"}
-            width={50}
-            height={50}
-            alt="avatar"
-            className={styles.avatar}
-          />
-          <Suspense fallback={<div>Loading...</div>}>
-            <PostUser userId={data.userId} />
-          </Suspense>
+          {data && (
+            <Suspense fallback={<div>Loading...</div>}>
+              <PostUser id={data.userId} />
+            </Suspense>
+          )}
           <div className={styles.detailtext}>
             <span className={styles.textDetail}>Published</span>
-            <span className={styles.detailValue}>1-1-202</span>
+            <span className={styles.detailValue}>
+              {data.createdAt.toString().slice(0, 16)}
+            </span>
           </div>
         </div>
-        <div className={styles.content}>{data.body}</div>
+        <div className={styles.content}>{data.desc}</div>
         <Link href={"/blog"} className={styles.link}>
           Back
         </Link>
