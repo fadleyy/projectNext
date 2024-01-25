@@ -9,7 +9,12 @@ const cardPost = ({ post }) => {
       <div className={styles.top}>
         {post.img && (
           <div className={styles.containerImg}>
-            <Image src={post.img} alt="post" fill className={styles.img} />
+            <Image
+              src={post.img || "/not-picture.png"}
+              alt="post"
+              fill
+              className={styles.img}
+            />
           </div>
         )}
         {/* <span className={styles.date}>{post.userId}</span> */}

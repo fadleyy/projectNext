@@ -7,39 +7,51 @@ import PostUser from "@/components/postUser/PostUser";
 import { getPost } from "@/lib/data";
 
 // FETCH WITH AN API
-// const GetData = async (slug) => {
-//   const res = await fetch(
-//     `https://jsonplaceholder.typicode.com/posts/${slug}`,
-//     { cache: "no-store" }
-//   );
+const GetData = async (slug) => {
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
 
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch data");
-//   }
+  if (!res.ok) {
+    throw new Error("Something went wrong!");
+  }
 
-//   return res.json();
-// };
+  return res.json();
+};
 
+/**
+ * Generate metadata for a post using its slug
+ * @param {Object} options - The options object
+ * @param {string} options.params.slug - The slug of the post
+ * @returns {Object} - The metadata object containing title and description
+ */
 export const generateMetadata = async ({ params }) => {
+  // Destructure the slug from the params object
   const { slug } = params;
+  // Get the post data using the slug
   const data = await getPost(slug);
+  // Return the metadata object with title and description
   return {
     title: data.title,
     description: data.desc,
   };
 };
+
 const SingelBlogpage = async ({ params }) => {
   const { slug } = params;
   // FETCH WITH AN AP
-  // const data = await GetData(slug);
+  const data = await GetData(slug);
 
   // FETCH WITHOUT AN API
-  const data = await getPost(slug);
+  // const data = await getPost(slug);
   return (
     <div className={styles.container}>
       {data.img && (
         <div className={styles.left}>
-          <Image src={data.img} fill alt="blog banner" className={styles.img} />
+          <Image
+            src={data.img || "/not-picture.png"}
+            fill
+            alt="blog banner"
+            className={styles.img}
+          />
         </div>
       )}
       <div className={styles.right}>
@@ -53,7 +65,7 @@ const SingelBlogpage = async ({ params }) => {
           <div className={styles.detailtext}>
             <span className={styles.textDetail}>Published</span>
             <span className={styles.detailValue}>
-              {data.createdAt.toString().slice(0, 16)}
+              {data.createdAt.toString().slice(0, 10)}
             </span>
           </div>
         </div>

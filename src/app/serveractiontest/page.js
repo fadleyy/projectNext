@@ -19,10 +19,12 @@ const serverActionTestPage = () => {
 
       <form action={delatePost}>
         <input type="text" placeholder="PostId" name="id" />
-        <button>delete</button>
+        <button>Delete</button>
       </form>
     </div>
   );
 };
 
 export default serverActionTestPage;
+
+<button>delete</button>;

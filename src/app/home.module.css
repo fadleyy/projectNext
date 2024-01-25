@@ -1,6 +1,7 @@
 .container {
   display: flex;
   gap: 100px;
+  justify-content: space-between;
 }
 
 .textContainer {
@@ -52,6 +53,11 @@
 .imgContainer {
   flex: 1;
   position: relative;
+}
+
+.heroImg {
+  height: 300px;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
